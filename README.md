@@ -1,26 +1,21 @@
-# Remix of Remix of Remix of Remix of Remix of Little Bites, Big Growth (39)
+# Steamed Cauliflower & Cheddar Tots — BabyBites
 
-veja essa pagina de isca ai, que fiz schreenshot, essa ai e uma pagina de receitas, que comca com uma imagem da receita, depois o resto, mas se fores a ver, ele usa fontes pequenas para nao tornra a pagina tao cumprida e longa, depois de dar algo gratuito ele mostra seu ebook, e manda as pessos para a pagina de vendas, fez uma isca, eu quero que tu me facas algo assim tambem, igual, uma pagina igual, so mude a receita e a imagem da receita, coloque receitas saudaveis e nutritivas para 6+ meses, me diga tu a receita, desde que seja espetacular e muto nutritiva, depois isque ara minha pagina de vendas, tenho um aplicativo
+A high-converting, mobile-first recipe landing page for **Steamed Cauliflower & Cheddar Tots** (Baby-Led Weaning & Toddler approved, 8+ months), complete with an interactive batch calculator, ingredient checklist, age & stage serving guides, dipping pairings, and the BabyBites App launch section with VIP WhatsApp group funnel.
 
-This project was built with [Lovable](https://lovable.dev).
+## Features
 
-**Live app**: https://baby-puree.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4eea1403-42b9-4939-aef1-eba654fd21e1).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- **Recipe:** Steamed Cauliflower & Cheddar Tots with tender broccoli flecks & mild herbs
+- **Interactive Multiplier:** Switch between 1x (16 tots) and 2x (32 tots freezer batch) with real-time scaled ingredients
+- **Interactive Checklist:** Tap-to-check ingredients
+- **Dipping Duo Guide:** Quick 2-minute Greek Yogurt Dip & Fresh Avocado Mash
+- **Safe Texture Squish Test:** Pediatrician-approved safety instructions
+- **Age-Adapted Serving Guide:** 8–10 mo, 10–12 mo, and 12+ months & toddlers
+- **App Launch Funnel:** BabyBites App official launch section with WhatsApp VIP group invite
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
+npm install
 npm run dev
+npm run build
 ```
