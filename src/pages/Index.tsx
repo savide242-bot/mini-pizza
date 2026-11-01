@@ -1,5 +1,5 @@
 import { useState } from "react";
-import cauliflowerTotsImg from "@/assets/recipe-cauliflower-tots.webp";
+import totsImg from "@/assets/recipe-cauliflower-tots.webp";
 import {
   Check,
   Clock,
@@ -22,10 +22,8 @@ import {
   ChefHat,
   Share2,
   Bookmark,
-  CheckCircle2,
-  Info,
   Timer,
-  ThumbsUp,
+  Zap,
 } from "lucide-react";
 
 const WHATSAPP_URL =
@@ -48,56 +46,55 @@ interface Step {
 
 const steps: Step[] = [
   {
-    title: "Steam the cauliflower & broccoli",
-    time: "7 min",
-    body: "Cut cauliflower and broccoli into florets. Steam over boiling water for 6–8 minutes until completely fork-tender. Do not boil directly in water to prevent them from becoming waterlogged.",
-    tip: "Steaming keeps natural sweetness high and preserves vital heat-sensitive vitamins.",
+    title: "Steam the broccoli florets",
+    time: "6 min",
+    body: "Cut broccoli into small florets. Steam over boiling water for 5–7 minutes until fork-tender and vibrant emerald green. Avoid boiling in water so they don't absorb excess liquid.",
+    tip: "Steaming preserves the bright color, sweet flavor, and heat-sensitive vitamin C.",
   },
   {
-    title: "Squeeze out all moisture (Crucial step!)",
+    title: "Squeeze out all moisture (The golden secret!)",
     time: "2 min",
-    body: "Transfer the steamed florets to a clean kitchen towel or cheesecloth. Let cool slightly, then twist and squeeze firmly over the sink. Squeeze out as much liquid as you possibly can.",
-    tip: "Dry veggies = tots that hold their shape, turn golden-crisp outside, and stay velvety inside.",
+    body: "Wrap the steamed broccoli in a clean kitchen towel and squeeze firmly over the sink. Squeezing out excess water is what guarantees golden tots that stay crisp on the outside instead of turning soggy.",
+    tip: "Dry veggies = tots that hold together perfectly without needing heavy flour.",
   },
   {
-    title: "Finely pulse or mince",
+    title: "Finely chop or pulse the broccoli",
     time: "2 min",
-    body: "Pulse the squeezed florets in a food processor 4–6 times (or mince finely with a sharp knife). You want fine grain-like pieces similar to cooked rice, not a smooth puree.",
-    tip: "Small tender flecks give toddlers the tactile chewing sensation they love without any choking risk.",
+    body: "Pulse the squeezed broccoli in a food processor 4–5 times (or finely mince with a chef knife) until broken into rice-sized grains.",
+    tip: "Small tender flecks blend seamlessly with quinoa and won't trigger food rejection.",
   },
   {
-    title: "Fold with cheddar, egg & oats",
+    title: "Fold with quinoa, cheese, egg & oats",
     time: "3 min",
-    body: "In a mixing bowl, combine the pulsed veggies, finely grated cheddar cheese, egg, rolled oats, garlic powder, onion powder, and dried parsley. Fold with a spatula until evenly incorporated.",
-    tip: "Let the bowl rest for 5 minutes so the oats absorb residual warmth and bind everything tightly.",
+    body: "In a mixing bowl, combine the chopped broccoli, cooked quinoa, grated cheese, beaten egg, rolled oats, garlic powder, onion powder, and a touch of parsley. Fold until a uniform, shapeable dough forms.",
+    tip: "Let the bowl sit 5 minutes so the oats soak up residual moisture and bind everything tightly.",
   },
   {
-    title: "Shape into 16 tot cylinders",
+    title: "Shape into 16 finger-friendly tots",
     time: "4 min",
-    body: "Lightly moisten your palms with water or olive oil. Scoop 1 rounded tablespoon of mixture and roll into compact tots (about thumb-length cylinders) or gentle nugget rounds.",
-    tip: "Moist hands prevent sticking and create a smoother, prettier crust.",
+    body: "With slightly damp hands, scoop 1 generous tablespoon of the mixture and gently press into compact cylinder tots or rounded nuggets. Damp hands prevent sticking and create smooth, golden tops.",
   },
   {
-    title: "Bake or Air Fry to golden bliss",
+    title: "Bake or Air Fry to golden perfection",
     time: "20 min",
-    body: "Oven: Place tots on a parchment-lined baking sheet. Bake at 190°C (375°F) for 18–20 minutes, flipping gently at minute 12 until golden and lightly crisped. Air Fryer: 180°C (350°F) for 10–12 minutes.",
+    body: "Oven: Place on a parchment-lined tray and bake at 190°C (375°F) for 18–20 minutes, flipping gently at minute 12 until golden-brown. Air Fryer: 180°C (350°F) for 10–12 minutes.",
   },
   {
-    title: "Rest, squish test & serve with dips",
+    title: "Rest 5 min, squish test & serve with dips",
     time: "5 min",
-    body: "Let the tots rest for 5 minutes right out of the oven. The cheddar firms up as it settles, making them sturdy for tiny fists. Always test by squishing one between thumb and forefinger before serving.",
+    body: "Cool 5 minutes — the melted cheese solidifies just enough to give tots a sturdy grip that won't crumble in baby's hands. Test with the finger squish test, then serve with Greek yogurt and avocado dip!",
   },
 ];
 
 const baseIngredients = [
-  { amount: 2, unit: "cups", item: "cauliflower florets (steamed & squeezed dry)" },
-  { amount: 0.5, unit: "cup", item: "broccoli florets (steamed for colorful green specks)" },
-  { amount: 1, unit: "cup", item: "sharp cheddar cheese, finely grated (fresh melts best)" },
+  { amount: 1.5, unit: "cups", item: "broccoli florets (steamed, squeezed dry & finely chopped)" },
+  { amount: 1, unit: "cup", item: "cooked quinoa (fluffy and cooled — protein & iron powerhouse)" },
+  { amount: 1, unit: "cup", item: "cheddar cheese, finely grated (or cheddar-mozzarella blend)" },
   { amount: 1, unit: "", item: "large egg (beaten, acts as binder)" },
-  { amount: 0.5, unit: "cup", item: "rolled oats (blended or quick oats)" },
-  { amount: 0.25, unit: "cup", item: "cooked quinoa or almond flour (adds protein & grip)" },
+  { amount: 0.5, unit: "cup", item: "rolled oats (lightly pulsed) or breadcrumbs" },
   { amount: 0.25, unit: "tsp", item: "garlic powder & mild onion powder" },
   { amount: 1, unit: "tbsp", item: "fresh parsley or chives, minced (optional)" },
+  { amount: 1, unit: "tsp", item: "olive oil (for shaping or light tray brush)" },
 ];
 
 const appFeatures = [
@@ -156,8 +153,8 @@ const Index = () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Steamed Cauliflower & Cheddar Tots",
-          text: "Check out this amazing toddler & baby-led weaning recipe!",
+          title: "Broccoli, Quinoa & Cheese Tots",
+          text: "Check out this super nutritious baby-led weaning & toddler finger food recipe!",
           url: window.location.href,
         });
       } catch {
@@ -174,11 +171,11 @@ const Index = () => {
       {/* Top Banner Navigation */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-amber-100/80 px-4 py-2.5 flex items-center justify-between shadow-xs">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 to-emerald-500 flex items-center justify-center text-white shadow-xs">
+          <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-emerald-500 to-amber-500 flex items-center justify-center text-white shadow-xs">
             <ChefHat className="w-4 h-4" />
           </div>
           <div>
-            <span className="font-extrabold text-xs tracking-tight text-emerald-900 block leading-tight">
+            <span className="font-extrabold text-xs tracking-tight text-emerald-950 block leading-tight">
               BabyBites
             </span>
             <span className="text-[9.5px] text-muted-foreground block -mt-0.5">
@@ -220,8 +217,8 @@ const Index = () => {
       <section className="relative max-w-2xl mx-auto">
         <div className="relative overflow-hidden sm:rounded-b-3xl shadow-sm">
           <img
-            src={cauliflowerTotsImg}
-            alt="Steamed cauliflower and cheddar tots arranged in a soft sage suction plate alongside cool Greek yogurt dip and creamy mashed avocado"
+            src={totsImg}
+            alt="Golden broccoli quinoa and cheese tots served in a sage suction plate with cool Greek yogurt dip and creamy mashed avocado"
             width={1200}
             height={1500}
             className="w-full h-[320px] sm:h-[400px] object-cover object-center"
@@ -233,7 +230,7 @@ const Index = () => {
           <div className="absolute top-3 left-4 right-4 flex justify-between items-center">
             <span className="bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-emerald-800 shadow-sm border border-emerald-100/50 flex items-center gap-1">
               <Leaf className="w-3 h-3 text-emerald-600" />
-              Veggie &amp; Cheddar
+              Broccoli &amp; Quinoa Superfood
             </span>
             <span className="bg-amber-500 text-white px-3.5 py-1 rounded-full text-[10.5px] font-extrabold uppercase tracking-wider shadow-sm flex items-center gap-1">
               <Clock className="w-3 h-3" />
@@ -243,13 +240,13 @@ const Index = () => {
 
           <div className="absolute bottom-2 left-4 right-4 flex items-center gap-2">
             <span className="bg-emerald-700/80 backdrop-blur-md text-white text-[9.5px] font-semibold px-2.5 py-0.5 rounded-md">
-              BLW Approved
+              Complete Protein
             </span>
             <span className="bg-amber-800/80 backdrop-blur-md text-white text-[9.5px] font-semibold px-2.5 py-0.5 rounded-md">
               Freezer-Friendly
             </span>
             <span className="bg-stone-900/70 backdrop-blur-md text-white text-[9.5px] font-semibold px-2.5 py-0.5 rounded-md">
-              No Added Salt
+              BLW Approved
             </span>
           </div>
         </div>
@@ -257,19 +254,19 @@ const Index = () => {
         {/* Title & Quick Stats Card */}
         <div className="px-4 pt-3 pb-3">
           <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight leading-tight mb-1.5">
-            Steamed Cauliflower &amp; Cheddar Tots
+            Broccoli, Quinoa &amp; Cheese Tots
           </h1>
           <p className="text-xs sm:text-sm text-gray-600 mb-4 leading-relaxed">
-            Golden, bite-sized veggie nuggets packed with steamed cauliflower,
-            melted cheddar and wholesome grains. Crispy on the outside,
-            pillowy-soft inside — engineered for tiny hands and curious eaters.
+            Nutritious, golden tots packed with tender broccoli florets,
+            protein-rich quinoa, and melted sharp cheese. Crispy on the outside,
+            pillowy-soft and fluffy inside — engineered for tiny hands and curious eaters.
           </p>
 
           {/* Metrics Grid */}
           <div className="grid grid-cols-4 gap-2 text-center">
             {[
               { icon: Clock, label: "Prep", value: "15 min" },
-              { icon: Flame, label: "Steam & Bake", value: "20 min" },
+              { icon: Flame, label: "Cook & Bake", value: "20 min" },
               { icon: Users, label: "Makes", value: multiplier === 1 ? "16 Tots" : "32 Tots" },
               { icon: Snowflake, label: "Freezes", value: "3 Mo" },
             ].map(({ icon: Icon, label, value }) => (
@@ -295,27 +292,27 @@ const Index = () => {
         <div className="grid grid-cols-4 gap-2 text-center">
           {[
             {
+              icon: Zap,
+              label: "Complete Protein",
+              desc: "All 9 Amino Acids",
+              color: "text-emerald-700 bg-emerald-50 border-emerald-200/80",
+            },
+            {
               icon: Brain,
-              label: "Brain Fats",
-              desc: "Cheddar & Avocado",
+              label: "Iron & Brain",
+              desc: "Quinoa + Cheese",
               color: "text-amber-600 bg-amber-50 border-amber-200/80",
             },
             {
-              icon: Leaf,
-              label: "Hidden Veg",
-              desc: "Mild & Sweet",
-              color: "text-emerald-600 bg-emerald-50 border-emerald-200/80",
-            },
-            {
               icon: Heart,
-              label: "Bone Builder",
+              label: "Strong Bones",
               desc: "Calcium Rich",
               color: "text-rose-600 bg-rose-50 border-rose-200/80",
             },
             {
               icon: Sparkles,
               label: "Pincer Grasp",
-              desc: "Easy Grip",
+              desc: "Grip Without Mess",
               color: "text-orange-600 bg-orange-50 border-orange-200/80",
             },
           ].map(({ icon: Icon, label, desc, color }) => (
@@ -332,13 +329,9 @@ const Index = () => {
           ))}
         </div>
 
-        <div className="mt-3.5 bg-gradient-to-r from-amber-50/70 via-emerald-50/50 to-orange-50/60 p-3.5 rounded-xl border border-amber-200/60 text-xs text-gray-700 leading-relaxed shadow-2xs">
+        <div className="mt-3.5 bg-gradient-to-r from-emerald-50/70 via-amber-50/50 to-orange-50/60 p-3.5 rounded-xl border border-emerald-200/60 text-xs text-gray-700 leading-relaxed shadow-2xs">
           <p>
-            <strong>Why little ones finish the plate:</strong> Cauliflower when
-            steamed turns remarkably gentle and sweet. Combined with melted sharp
-            cheddar and hearty oats, it forms a cohesive, savory tot that won’t
-            crumble into a dry mess in a baby’s fist. Served with cooling Greek
-            yogurt and mashed avocado, this meal turns self-feeding into pure joy.
+            <strong>The power of broccoli &amp; quinoa:</strong> Quinoa is one of nature’s rare complete plant proteins, providing iron and zinc for brain milestones, while broccoli delivers fiber, vitamin C, and sulforaphane. Melted cheese binds the wholesome grains into an irresistible savory tot that toddlers gobble up without realizing they’re eating superfoods!
           </p>
         </div>
       </section>
@@ -361,7 +354,7 @@ const Index = () => {
               onClick={() => setMultiplier(1)}
               className={`px-2.5 py-1 rounded-md transition-all ${
                 multiplier === 1
-                  ? "bg-amber-600 text-white shadow-2xs"
+                  ? "bg-emerald-700 text-white shadow-2xs"
                   : "text-amber-800 hover:text-amber-950"
               }`}
             >
@@ -371,7 +364,7 @@ const Index = () => {
               onClick={() => setMultiplier(2)}
               className={`px-2.5 py-1 rounded-md transition-all ${
                 multiplier === 2
-                  ? "bg-amber-600 text-white shadow-2xs"
+                  ? "bg-emerald-700 text-white shadow-2xs"
                   : "text-amber-800 hover:text-amber-950"
               }`}
             >
@@ -389,13 +382,13 @@ const Index = () => {
               <div
                 key={idx}
                 onClick={() => toggleCheck(idx)}
-                className="py-2.5 px-1.5 flex items-start gap-3 cursor-pointer group hover:bg-amber-50/40 rounded-lg transition-colors"
+                className="py-2.5 px-1.5 flex items-start gap-3 cursor-pointer group hover:bg-emerald-50/40 rounded-lg transition-colors"
               >
                 <div
                   className={`w-4 h-4 mt-0.5 rounded flex items-center justify-center transition-all ${
                     isChecked
                       ? "bg-emerald-600 text-white"
-                      : "border border-gray-300 group-hover:border-amber-400 bg-white"
+                      : "border border-gray-300 group-hover:border-emerald-400 bg-white"
                   }`}
                 >
                   {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
@@ -425,17 +418,17 @@ const Index = () => {
         </div>
 
         {/* Dipping Duo Bonus Box */}
-        <div className="mt-3 bg-emerald-50/70 border border-emerald-200/80 rounded-xl p-3">
-          <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-900 mb-1">
+        <div className="mt-3 bg-emerald-50/80 border border-emerald-200/90 rounded-xl p-3">
+          <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-950 mb-1">
             <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
             <span>The 2-Minute Dipping Duo (from the photo):</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-emerald-900/90 mt-1.5">
-            <div className="bg-white/80 p-2 rounded-lg border border-emerald-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-emerald-900/95 mt-1.5">
+            <div className="bg-white/90 p-2.5 rounded-lg border border-emerald-100 shadow-2xs">
               <strong>1. Cool Greek Yogurt Dip:</strong> 3 tbsp plain whole-milk Greek yogurt + 1 drop lemon juice + pinch of dried dill or mint.
             </div>
-            <div className="bg-white/80 p-2 rounded-lg border border-emerald-100">
-              <strong>2. Fresh Avocado Mash:</strong> 1/2 ripe avocado mashed with 1 tsp warm water or breastmilk/formula until silky smooth.
+            <div className="bg-white/90 p-2.5 rounded-lg border border-emerald-100 shadow-2xs">
+              <strong>2. Creamy Avocado Mash:</strong> 1/2 ripe avocado mashed with 1 tsp warm water, formula or breastmilk until silky smooth.
             </div>
           </div>
         </div>
@@ -446,9 +439,9 @@ const Index = () => {
           <div>
             <strong>Smart Allergy Swaps:</strong>
             <span className="block text-amber-800/90 mt-0.5">
-              • <strong>Egg-free:</strong> 1 tbsp ground flaxseed mixed with 2.5 tbsp warm water (let sit 5 min).<br />
-              • <strong>Dairy-free:</strong> Use shredded dairy-free cheddar or 2 tbsp nutritional yeast + pinch of oil.<br />
-              • <strong>Gluten-free:</strong> Use certified gluten-free rolled oats.
+              • <strong>Egg-free:</strong> 1 flax egg (1 tbsp ground flax + 2.5 tbsp warm water, rest 5 min).<br />
+              • <strong>Dairy-free:</strong> Use shredded vegan cheddar or 2.5 tbsp nutritional yeast + drizzle of olive oil.<br />
+              • <strong>Gluten-free:</strong> Use certified 100% gluten-free rolled oats (quinoa is naturally gluten-free!).
             </span>
           </div>
         </div>
@@ -465,7 +458,7 @@ const Index = () => {
               Follow these simple steps for golden, fail-proof tots
             </p>
           </div>
-          <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+          <span className="text-[10px] font-bold text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
             <Timer className="w-3 h-3" />
             35 min total
           </span>
@@ -475,10 +468,10 @@ const Index = () => {
           {steps.map((step, i) => (
             <li
               key={i}
-              className="bg-white border border-amber-100 rounded-2xl p-3.5 shadow-2xs hover:border-amber-300 transition-all"
+              className="bg-white border border-amber-100 rounded-2xl p-3.5 shadow-2xs hover:border-emerald-300 transition-all"
             >
               <div className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white flex items-center justify-center text-[11px] font-black flex-shrink-0 shadow-xs mt-0.5">
+                <span className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-600 to-amber-500 text-white flex items-center justify-center text-[11px] font-black flex-shrink-0 shadow-xs mt-0.5">
                   {i + 1}
                 </span>
 
@@ -499,7 +492,7 @@ const Index = () => {
                   </p>
 
                   {step.tip && (
-                    <div className="mt-2 text-[10.5px] text-amber-800 bg-amber-50/80 border border-amber-200/70 rounded-lg p-2 flex items-start gap-1.5 leading-snug">
+                    <div className="mt-2 text-[10.5px] text-emerald-900 bg-emerald-50/80 border border-emerald-200/70 rounded-lg p-2 flex items-start gap-1.5 leading-snug">
                       <span className="flex-shrink-0">💡</span>
                       <span>{step.tip}</span>
                     </div>
@@ -524,21 +517,21 @@ const Index = () => {
           {[
             {
               age: "8–10 mo",
-              title: "Palmar Grasp & Soft Halves",
+              title: "Palmar Grasp & Tender Halves",
               badgeBg: "bg-emerald-600",
-              text: "Serve cut in half lengthwise into two finger-sized bars, or gently flatten into a mini patty. Baby can grasp with the palm and gum easily.",
+              text: "Cut tots in half lengthwise into two finger-length sticks, or slightly flatten into a soft patty. Baby can securely hold in a fist and gum easily.",
             },
             {
               age: "10–12 mo",
-              title: "Pincer Grasp Bites",
+              title: "Pincer Grasp Coin Bites",
               badgeBg: "bg-amber-600",
-              text: "Cut tots into quarter-sized chunks or coin slices. Encourages thumb-and-forefinger coordination and chewing practice.",
+              text: "Slice tots into bite-sized coins or quarters. Promotes thumb-and-forefinger coordination and chewing confidence.",
             },
             {
               age: "12+ mo & Toddlers",
               title: "Whole Tots & Dip Practice",
               badgeBg: "bg-orange-600",
-              text: "Offer whole tots with the cooling yogurt dip and avocado mash! Great for dip-and-bite motor fun and self-feeding confidence.",
+              text: "Serve whole tots with the cooling yogurt dip and avocado mash! Perfect for motor dipping practice, independence, and clean plates.",
             },
           ].map((row) => (
             <div
@@ -568,8 +561,8 @@ const Index = () => {
         </div>
 
         {/* Pediatrician Squish Test Note */}
-        <div className="mt-3 bg-white border border-amber-200 rounded-xl p-3 text-[11px] text-gray-700 flex gap-2.5 shadow-2xs items-start">
-          <div className="w-5 h-5 rounded-full bg-amber-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-bold">
+        <div className="mt-3 bg-white border border-emerald-200 rounded-xl p-3 text-[11px] text-gray-700 flex gap-2.5 shadow-2xs items-start">
+          <div className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-bold">
             ✓
           </div>
           <div>
@@ -578,7 +571,7 @@ const Index = () => {
             </strong>
             Always press a tot between your thumb and forefinger before serving.
             It should yield with gentle pressure — simulating how baby’s gums
-            will effortlessly compress the food. Never serve piping hot!
+            will compress the food. Never serve piping hot from the oven!
           </div>
         </div>
       </section>
@@ -588,38 +581,30 @@ const Index = () => {
         <h2 className="text-base font-extrabold text-gray-900 tracking-tight mb-2 flex items-center gap-1.5">
           <span>🧡 Why Moms Love It</span>
         </h2>
-        <div className="bg-gradient-to-br from-amber-50 via-orange-50/50 to-emerald-50/40 rounded-2xl p-4 border border-amber-200 shadow-2xs">
+        <div className="bg-gradient-to-br from-emerald-50/70 via-amber-50/60 to-orange-50/40 rounded-2xl p-4 border border-emerald-200/80 shadow-2xs">
           <ul className="space-y-2 text-xs text-gray-800">
             <li className="flex items-start gap-2">
-              <span className="text-amber-600 font-bold">•</span>
+              <span className="text-emerald-600 font-bold">•</span>
               <span>
-                <strong>Zero Fighting over Veggies:</strong> The aroma of
-                melted cheddar completely wins over hesitant toddlers, getting
-                whole florets of cauliflower and broccoli into happy tummies.
+                <strong>End Veggie Pickiness:</strong> The rich aroma of melted cheese makes even skeptical toddlers devour steamed broccoli without complaint.
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-amber-600 font-bold">•</span>
+              <span className="text-emerald-600 font-bold">•</span>
               <span>
-                <strong>Rich in Brain Fats &amp; Calcium:</strong> Real whole
-                cheddar provides essential fats for rapid brain growth and strong
-                teething bones.
+                <strong>Quinoa Superfuel:</strong> Packed with all 9 essential amino acids, plant iron, and sustained carbohydrates for steady energy between naps.
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-amber-600 font-bold">•</span>
+              <span className="text-emerald-600 font-bold">•</span>
               <span>
-                <strong>No Added Salt or Preservatives:</strong> Pure whole-food
-                ingredients you can pronounce, portioned specifically for
-                delicate developing kidneys.
+                <strong>No Salt, No Fillers:</strong> Pure whole-food ingredients you can see and trust, gentle on immature kidneys.
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-amber-600 font-bold">•</span>
+              <span className="text-emerald-600 font-bold">•</span>
               <span>
-                <strong>Sanity Saver Freezer Batch:</strong> Pop 3 frozen tots
-                in the air fryer for 3 minutes, add sliced fruit, and lunch is
-                served!
+                <strong>Batch Cook Lifesaver:</strong> Double the batch, flash-freeze, and warm 3 tots in the air fryer in under 4 minutes on busy days.
               </span>
             </li>
           </ul>
@@ -639,7 +624,7 @@ const Index = () => {
             },
             {
               title: "Freezer (3 Months)",
-              text: "Flash-freeze tots on a baking tray for 1 hour until solid, then transfer into a reusable silicone freezer bag. Won't stick together!",
+              text: "Flash-freeze tots on a baking tray for 1 hour until solid, then transfer into a reusable silicone freezer bag. They won't stick together!",
             },
             {
               title: "How to Reheat in 3 Minutes",
@@ -647,7 +632,7 @@ const Index = () => {
             },
           ].map((item, i) => (
             <div key={i} className="flex items-start gap-2.5 text-xs">
-              <Snowflake className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+              <Snowflake className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
               <div>
                 <strong className="text-gray-900">{item.title}:</strong>{" "}
                 <span className="text-gray-600">{item.text}</span>
@@ -687,7 +672,7 @@ const Index = () => {
                   key={feat.title}
                   className="flex items-start gap-2.5 p-2.5 rounded-xl bg-amber-50/60 border border-amber-200/60 hover:bg-amber-50 transition-colors"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-2xs">
+                  <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-emerald-600 to-amber-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-2xs">
                     <Icon className="w-4 h-4" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -756,12 +741,12 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="px-4 py-8 text-center border-t border-amber-100/60 mt-6">
-        <div className="w-8 h-8 mx-auto mb-2 rounded-full bg-amber-100 flex items-center justify-center text-amber-700">
+        <div className="w-8 h-8 mx-auto mb-2 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800">
           <ChefHat className="w-4 h-4" />
         </div>
         <p className="text-xs font-semibold text-gray-700">BabyBites</p>
         <p className="text-[11px] text-gray-400 mt-0.5 leading-relaxed">
-          Nourishing tiny bodies with whole, joyful foods. 🧡
+          Nourishing tiny bodies with whole, joyful foods. 🥦🧀
         </p>
       </footer>
     </div>
