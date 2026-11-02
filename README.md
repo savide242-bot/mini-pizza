@@ -1,15 +1,15 @@
-# Broccoli, Quinoa & Cheese Tots — BabyBites
+# Baked Zucchini, Egg & Cheese Bars — BabyBites (Easy Bars)
 
-A high-converting, mobile-first recipe landing page for **Broccoli, Quinoa & Cheese Tots** (Baby-Led Weaning & Toddler approved, 8+ months), complete with an interactive batch calculator, ingredient checklist, age & stage serving guides, dipping pairings, and the BabyBites App launch section with VIP WhatsApp group funnel.
+A high-converting, mobile-first recipe landing page for **Baked Zucchini, Egg & Cheese Bars** (Baby-Led Weaning & Toddler approved, 8+ months), complete with an interactive batch calculator, ingredient checklist, age & stage serving guides, dipping pairings, and the BabyBites App launch section with VIP WhatsApp group funnel.
 
 ## Features
 
-- **Recipe:** Broccoli, Quinoa & Cheese Tots (tender steamed broccoli, complete protein quinoa, melted cheese & mild seasonings)
-- **Interactive Multiplier:** Switch between 1x (16 tots) and 2x (32 tots freezer batch) with real-time scaled ingredients
+- **Recipe:** Baked Zucchini, Egg & Cheese Bars (pasture eggs, shredded zucchini, melted cheese & oat flour)
+- **Interactive Multiplier:** Switch between 1x (12 bars) and 2x (24 bars freezer batch) with real-time scaled ingredients
 - **Interactive Checklist:** Tap-to-check ingredients
-- **Dipping Duo Guide:** Quick 2-minute Greek Yogurt Dip & Fresh Creamy Avocado Mash
+- **Plating Complements:** Cool Greek Yogurt Dip & Fresh Sweet Strawberry Bites
 - **Safe Texture Squish Test:** Pediatrician-approved safety instructions
-- **Age-Adapted Serving Guide:** 8–10 mo, 10–12 mo, and 12+ months & toddlers
+- **Age-Adapted Serving Guide:** 8–10 mo (palmar grasp sticks), 10–12 mo (pincer grasp cubes), and 12+ months & toddlers (whole bars with dips)
 - **App Launch Funnel:** BabyBites App official launch section with WhatsApp VIP group invite
 
 ## Development
