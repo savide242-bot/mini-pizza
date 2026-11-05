@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ZucchiniBars from "./pages/ZucchiniBars";
+import CarrotCheeseWaffles from "./pages/CarrotCheeseWaffles";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,7 +17,10 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ZucchiniBars />} />
+          <Route path="/" element={<CarrotCheeseWaffles />} />
+          <Route path="/carrot-cheese-waffles" element={<CarrotCheeseWaffles />} />
+          <Route path="/savory-carrot-cheese-waffles" element={<CarrotCheeseWaffles />} />
+          <Route path="/waffles" element={<CarrotCheeseWaffles />} />
           <Route path="/zucchini-bars" element={<ZucchiniBars />} />
           <Route path="/baked-zucchini-bars" element={<ZucchiniBars />} />
           <Route path="/baked-zucchini-egg-cheese-bars" element={<ZucchiniBars />} />
