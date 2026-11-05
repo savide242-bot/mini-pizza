@@ -236,7 +236,7 @@ const CarrotCheeseWaffles = () => {
             </span>
             <span className="bg-orange-500 text-white px-3.5 py-1 rounded-full text-[10.5px] font-extrabold uppercase tracking-wider shadow-sm flex items-center gap-1">
               <Clock className="w-3 h-3" />
-              6+ Months (BLW)
+              9+ Months
             </span>
           </div>
 
@@ -518,22 +518,22 @@ const CarrotCheeseWaffles = () => {
         <div className="space-y-2.5">
           {[
             {
-              age: "6–8 mo",
-              title: "Palmar Grasp Waffle Fingers (Thick & Soft)",
+              age: "9–12 mo",
+              title: "Pincer Grasp Cubes & Waffle Sticks",
               badgeBg: "bg-emerald-600",
-              text: "Slice waffle into long sticks about 2 adult fingers wide (approx. 3–4 inches long). At this stage baby grasps food with their whole fist, so the stick must be long enough to stick out above and below their tiny fist. Ensure the waffle is tender and passes the squish test.",
+              text: "Slice waffle sticks into 1-cm bite-sized squares or soft strips. At 9+ months, babies actively develop their pincer grasp (thumb and forefinger). The soft waffle grooves make it easy to pick up without squishing, and dipping in cool Greek yogurt encourages chewing confidence.",
             },
             {
-              age: "9–11 mo",
-              title: "Pincer Grasp Cubes & First Dips",
+              age: "12–18 mo",
+              title: "Whole Waffle Dippers & Motor Independence",
               badgeBg: "bg-amber-600",
-              text: "Cut waffle sticks into 1-cm bite-sized squares. This challenges baby's thumb-and-forefinger coordination. Offer a dab of cool plain Greek yogurt on the tray for sensory tasting and gentle dipping exploration.",
+              text: "Serve whole waffle sticks alongside the Greek yogurt dip and soft fruit pieces. Toddlers love practicing two-handed coordination, dipping, and taking controlled independent bites.",
             },
             {
-              age: "12+ mo & Toddlers",
-              title: "Whole Dipper Sticks & Lunchbox Prep",
+              age: "18+ mo & Toddlers",
+              title: "Crispy Waffle Fingers & Lunchbox Favorite",
               badgeBg: "bg-orange-600",
-              text: "Serve whole waffle sticks alongside the Greek yogurt dip and mild fruit slices. Toddlers love practicing independent dipping skills! You can also spread a thin layer of cream cheese or avocado purée between two sticks.",
+              text: "Serve whole waffle sticks warm or packed in daycare lunchboxes. You can also make mini waffle sandwiches with cream cheese or avocado. Perfect finger food for busy toddler breakfasts and outings.",
             },
           ].map((row) => (
             <div
