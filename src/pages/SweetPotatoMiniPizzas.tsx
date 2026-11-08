@@ -29,6 +29,7 @@ import {
   Calendar,
   Layers,
   ArrowRight,
+  Brain,
 } from "lucide-react";
 
 const WHATSAPP_URL =
@@ -289,7 +290,6 @@ const SweetPotatoMiniPizzas = () => {
             width={1200}
             height={1500}
             className="w-full h-[330px] sm:h-[420px] object-cover object-center"
-            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF7] via-transparent to-black/20" />
 
