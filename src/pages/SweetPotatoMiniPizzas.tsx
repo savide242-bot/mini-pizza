@@ -106,78 +106,53 @@ const baseIngredients = [
 const appCarouselSlides = [
   {
     id: "recipes",
-    badge: "Milestone Matched (6–36m)",
-    title: "300+ Recipes adapted by age",
-    subtitle: "End the daily anxiety of guessing what is safe for your baby.",
-    problemTitle: "The Problem It Solves:",
-    problemText:
-      "Constantly wondering if food is cut safely, guessing texture readiness, or cooking separate meals for baby while the rest of the family eats.",
-    solutionTitle: "The Solution:",
-    solutionText:
-      "Instant access to 300+ pediatrician-approved recipes strictly tailored to each age stage (6–8m smooth mashes, 8–12m safe finger foods like these mini pizzas, 12m+ toddler bites). Every meal is ready in under 20 minutes with 5 simple, wholesome ingredients.",
+    title: "300+ Age-Adapted Recipes",
+    description:
+      "Eliminates the daily guesswork of what to prepare. Over 300 nutrient-dense, pediatrician-aligned recipes categorized by exact age stages (6–8m, 9–11m, 12m+), prep time, and developmental textures.",
+    bullet: "Zero meal repetition · Wholesome meals in 20 minutes or less",
     image: appPreviewRecipes,
-    alt: "BabyBites 300+ Recipes adapted by age screen showing Quinoa Veggie Medley, Mini Mac & Cheese, and tots",
-    highlight: "300+ Recipes",
+    alt: "BabyBites 300+ Recipes adapted by age",
+    tab: "300+ Recipes",
   },
   {
     id: "planner",
-    badge: "1-Tap Weekly Organization",
     title: "Smart Meal Planner",
-    subtitle: "Say goodbye to the 5 PM dinner panic and endless mental exhaustion.",
-    problemTitle: "The Problem It Solves:",
-    problemText:
-      "The overwhelming mental fatigue of waking up every day asking 'what am I going to feed my baby today?' and worrying about nutritional gaps.",
-    solutionTitle: "The Solution:",
-    solutionText:
-      "Your baby's entire week planned in one tap. Perfectly balanced menus covering Breakfast, Lunch, Dinner, and Snacks. Easily swap meals, preview prep times, and tick off 'Done' as your baby eats.",
+    description:
+      "Ends 5 PM mealtime stress for good. Tap to schedule balanced weekly breakfasts, lunches, dinners, and snacks tailored to your baby's nutrition with instant prep tracking.",
+    bullet: "1-Tap weekly planning · Balanced nutrients on autopilot",
     image: appPreviewPlanner,
-    alt: "BabyBites Smart Meal Planner showing Monday and Tuesday schedules with mark-done buttons",
-    highlight: "Smart Planner",
+    alt: "BabyBites Smart Weekly Meal Planner",
+    tab: "Meal Planner",
   },
   {
     id: "pantry",
-    badge: "Cook What You Already Have",
     title: "Pantry Helper",
-    subtitle: "Turn random fridge leftovers into instant wholesome baby meals.",
-    problemTitle: "The Problem It Solves:",
-    problemText:
-      "Staring into a full pantry with zero inspiration, letting produce spoil, or ordering expensive takeout because you didn't have time to plan.",
-    solutionTitle: "The Solution:",
-    solutionText:
-      "Simply type in 2 or 3 ingredients you have on hand (e.g. oats, banana, egg), and BabyBites instantly generates proven, age-safe baby meals you can cook in 10 minutes without grocery shopping.",
+    description:
+      "Transforms everyday ingredients into instant baby meals. Type what is already in your fridge or cupboard, and discover delicious, safe baby recipes right away.",
+    bullet: "Zero food waste · Instant recipes with what you have on hand",
     image: appPreviewPantry,
-    alt: "BabyBites Pantry Helper showing ingredients on hand and instant cookbook recipes",
-    highlight: "Pantry Helper",
+    alt: "BabyBites Pantry Helper kitchen companion",
+    tab: "Pantry Helper",
   },
   {
     id: "shopping",
-    badge: "Automated & Zero-Waste",
     title: "Smart Shopping List",
-    subtitle: "Supermarket runs on autopilot with zero forgotten ingredients.",
-    problemTitle: "The Problem It Solves:",
-    problemText:
-      "Rushing through supermarket aisles with a fussy baby, buying duplicate items, or getting home only to realize you forgot the main baby staple.",
-    solutionTitle: "The Solution:",
-    solutionText:
-      "Your weekly meal plan automatically compiles a clean, interactive grocery list organized by supermarket aisles (Grains, Dairy, Produce). Check items off with one tap and eliminate food waste.",
+    description:
+      "Puts grocery shopping on effortless autopilot. Automatically generates an organized grocery list organized by supermarket aisles directly from your baby's weekly meal plan.",
+    bullet: "Sorted by grocery aisle · Never forget a key baby ingredient",
     image: appPreviewShopping,
-    alt: "BabyBites Smart Grocery Shopping List sorted by Grains and Dairy categories",
-    highlight: "Shopping List",
+    alt: "BabyBites Smart Grocery Shopping List",
+    tab: "Shopping List",
   },
   {
     id: "community",
-    badge: "Supportive Parent Village",
     title: "Moms Community (BabyGram)",
-    subtitle: "A judgment-free haven to share real wins, messy plates, and get support.",
-    problemTitle: "The Problem It Solves:",
-    problemText:
-      "Feeling lonely, anxious, and second-guessing yourself when your baby gags, throws food on the floor, or enters a picky eating phase.",
-    solutionTitle: "The Solution:",
-    solutionText:
-      "Connect with thousands of real moms navigating the exact same feeding milestones. Share photos of real baby plates, celebrate wins, exchange tips, and receive warm daily encouragement.",
+    description:
+      "A warm, judgment-free space to share the journey. Connect with real moms sharing everyday plates, feeding wins, texture transitions, and gentle encouragement.",
+    bullet: "Real plate inspiration · Daily support from fellow moms",
     image: appPreviewCommunity,
-    alt: "BabyBites Moms Community BabyGram social feed sharing baby plate photo and warm message",
-    highlight: "Moms Community",
+    alt: "BabyBites Supportive Moms Community social feed",
+    tab: "Moms Community",
   },
 ];
 
@@ -707,113 +682,89 @@ const SweetPotatoMiniPizzas = () => {
           </div>
 
           {/* Interactive Feature Pills (Tabs) */}
-          <div className="relative z-10 flex items-center gap-1.5 overflow-x-auto pb-2 mb-4 scrollbar-none no-scrollbar">
+          <div className="relative z-10 flex items-center justify-center gap-1.5 overflow-x-auto pb-1 mb-4 scrollbar-none no-scrollbar">
             {appCarouselSlides.map((slide, index) => {
               const isActive = activeSlide === index;
               return (
                 <button
                   key={slide.id}
                   onClick={() => setActiveSlide(index)}
-                  className={`text-xs font-extrabold px-3 py-1.5 rounded-full transition-all flex-shrink-0 flex items-center gap-1.5 border ${
+                  className={`text-[11px] font-extrabold px-3 py-1.5 rounded-full transition-all flex-shrink-0 border ${
                     isActive
                       ? "bg-orange-600 text-white border-orange-600 shadow-xs scale-[1.02]"
-                      : "bg-orange-50/70 text-gray-700 border-orange-200/70 hover:bg-orange-100"
+                      : "bg-orange-50/80 text-gray-700 border-orange-200/70 hover:bg-orange-100"
                   }`}
                 >
-                  <span>{slide.highlight}</span>
+                  {slide.tab}
                 </button>
               );
             })}
           </div>
 
-          {/* Carousel Slide Card */}
-          <div className="relative z-10 bg-gradient-to-b from-[#FFFDF9] to-amber-50/30 rounded-2xl border border-orange-200/80 p-3.5 sm:p-5 shadow-2xs">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
-              {/* Phone Mockup Screen */}
-              <div className="md:col-span-5 flex justify-center">
-                <div className="relative w-full max-w-[240px] sm:max-w-[260px] rounded-[28px] overflow-hidden border-[5px] border-gray-900 shadow-xl bg-white aspect-[9/18.5]">
-                  {/* Speaker Notch */}
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-3 bg-gray-900 rounded-full z-20" />
-                  <img
-                    src={currentSlide.image}
-                    alt={currentSlide.alt}
-                    className="w-full h-full object-cover object-top transition-opacity duration-300"
-                  />
-                </div>
+          {/* Carousel Slide Card (Compact & in same field of view) */}
+          <div className="relative z-10 bg-gradient-to-b from-[#FFFDF9] via-white to-amber-50/40 rounded-2xl border border-orange-200/80 p-3 sm:p-5 shadow-xs">
+            {/* Phone Screen Mockup with Side Navigation Buttons */}
+            <div className="relative mx-auto max-w-[250px] sm:max-w-[270px]">
+              {/* Phone Frame */}
+              <div className="relative rounded-[26px] overflow-hidden border-[4px] border-gray-900 shadow-xl bg-white aspect-[9/18]">
+                {/* Speaker Notch */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-2.5 bg-gray-900 rounded-full z-20" />
+                <img
+                  src={currentSlide.image}
+                  alt={currentSlide.alt}
+                  className="w-full h-full object-cover object-top transition-opacity duration-300"
+                />
               </div>
 
-              {/* Feature Content & Problem-Solution Copy */}
-              <div className="md:col-span-7 flex flex-col justify-center text-left">
-                <div className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 px-2.5 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider mb-1.5 w-fit">
-                  {currentSlide.badge}
-                </div>
+              {/* Previous Button - Left Side of Image */}
+              <button
+                onClick={handlePrevSlide}
+                aria-label="Previous feature"
+                className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white text-gray-800 shadow-lg border border-orange-200/80 flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-30"
+              >
+                <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+              </button>
 
-                <h3 className="text-lg sm:text-xl font-black text-gray-900 tracking-tight leading-snug">
-                  {currentSlide.title}
-                </h3>
-                <p className="text-xs font-semibold text-orange-700 mb-3">
-                  {currentSlide.subtitle}
-                </p>
+              {/* Next Button - Right Side of Image */}
+              <button
+                onClick={handleNextSlide}
+                aria-label="Next feature"
+                className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-orange-600 hover:bg-orange-700 text-white shadow-lg border border-orange-400 flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-30"
+              >
+                <ChevronRight className="w-5 h-5 stroke-[2.5]" />
+              </button>
+            </div>
 
-                {/* The Problem It Solves */}
-                <div className="mb-2.5 bg-rose-50/90 border border-rose-200/80 rounded-xl p-2.5">
-                  <div className="flex items-center gap-1.5 text-[11px] font-extrabold text-rose-900 mb-0.5">
-                    <AlertCircle className="w-3.5 h-3.5 text-rose-600 flex-shrink-0" />
-                    <span>{currentSlide.problemTitle}</span>
-                  </div>
-                  <p className="text-[11px] text-rose-950/80 leading-relaxed">
-                    {currentSlide.problemText}
-                  </p>
-                </div>
+            {/* Slide Indicators (Dots + Counter) */}
+            <div className="flex items-center justify-center gap-1.5 mt-3 mb-1.5">
+              {appCarouselSlides.map((_, dotIdx) => (
+                <button
+                  key={dotIdx}
+                  onClick={() => setActiveSlide(dotIdx)}
+                  aria-label={`Go to slide ${dotIdx + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    activeSlide === dotIdx
+                      ? "w-6 bg-orange-600"
+                      : "w-2 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
+              ))}
+              <span className="text-[10px] font-bold text-gray-400 ml-1.5">
+                {activeSlide + 1} / {appCarouselSlides.length}
+              </span>
+            </div>
 
-                {/* The Solution */}
-                <div className="bg-emerald-50/90 border border-emerald-200/80 rounded-xl p-2.5 mb-4">
-                  <div className="flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-900 mb-0.5">
-                    <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 stroke-[3]" />
-                    <span>{currentSlide.solutionTitle}</span>
-                  </div>
-                  <p className="text-[11px] text-emerald-950/80 leading-relaxed">
-                    {currentSlide.solutionText}
-                  </p>
-                </div>
-
-                {/* Carousel Controls (Previous / Next) */}
-                <div className="flex items-center justify-between pt-2 border-t border-orange-100">
-                  <div className="flex items-center gap-1">
-                    {appCarouselSlides.map((_, dotIdx) => (
-                      <span
-                        key={dotIdx}
-                        onClick={() => setActiveSlide(dotIdx)}
-                        className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                          activeSlide === dotIdx
-                            ? "w-6 bg-orange-600"
-                            : "w-2 bg-gray-300 hover:bg-gray-400"
-                        }`}
-                      />
-                    ))}
-                    <span className="text-[10px] font-bold text-gray-400 ml-2">
-                      {activeSlide + 1} of {appCarouselSlides.length}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={handlePrevSlide}
-                      className="p-1.5 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 transition-colors shadow-2xs"
-                      title="Previous feature"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={handleNextSlide}
-                      className="px-3 py-1.5 rounded-full bg-orange-600 text-white font-extrabold text-xs flex items-center gap-1 hover:bg-orange-700 transition-all shadow-xs"
-                      title="Next feature"
-                    >
-                      <span>Next</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
+            {/* High-Converting Persuasive Copy (Compact, in same field of view) */}
+            <div className="text-center px-2 sm:px-4 mt-1">
+              <h3 className="text-base sm:text-lg font-black text-gray-900 tracking-tight leading-snug">
+                {currentSlide.title}
+              </h3>
+              <p className="text-xs text-gray-600 leading-relaxed mt-1 max-w-md mx-auto">
+                {currentSlide.description}
+              </p>
+              <div className="mt-2.5 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-900 border border-emerald-200/80 rounded-full px-3 py-1 text-[11px] font-bold shadow-2xs">
+                <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 stroke-[3]" />
+                <span>{currentSlide.bullet}</span>
               </div>
             </div>
           </div>
