@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ZucchiniBars from "./pages/ZucchiniBars";
 import CarrotCheeseWaffles from "./pages/CarrotCheeseWaffles";
+import SweetPotatoMiniPizzas from "./pages/SweetPotatoMiniPizzas";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -17,7 +18,9 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<CarrotCheeseWaffles />} />
+          <Route path="/" element={<SweetPotatoMiniPizzas />} />
+          <Route path="/sweet-potato-mini-pizzas" element={<SweetPotatoMiniPizzas />} />
+          <Route path="/mini-pizzas" element={<SweetPotatoMiniPizzas />} />
           <Route path="/carrot-cheese-waffles" element={<CarrotCheeseWaffles />} />
           <Route path="/savory-carrot-cheese-waffles" element={<CarrotCheeseWaffles />} />
           <Route path="/waffles" element={<CarrotCheeseWaffles />} />
